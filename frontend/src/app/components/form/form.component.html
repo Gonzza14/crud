@@ -1,0 +1,146 @@
+<h2 *ngIf="usuarioParaEditar === null && userLoginOn"  class="title">Agregar usuario</h2>
+<h2 *ngIf="usuarioParaEditar !== null && userLoginOn"  class="title">Editar usuario</h2>
+<form *ngIf="userLoginOn" [formGroup]="formUsuario" class="form-floating">
+  <p class="text-danger">{{ errorMessage }}</p>
+  <div class="form-floating mb-3">
+    <input
+      type="text"
+      class="form-control"
+      id="floatingNames"
+      placeholder="Ingrese sus nombres"
+      formControlName="names"
+    />
+    <label for="floatingNames">Nombres</label>
+    <div
+      *ngIf="names.invalid && (names.dirty || names.touched)"
+      class="text-danger"
+    >
+      <div *ngIf="names.errors?.['required']">
+        El nombre de la persona es requerido.
+      </div>
+      <div *ngIf="names.errors?.['pattern']">
+        El nombre de la persona debe tener un formato válido.
+      </div>
+    </div>
+  </div>
+  <div class="form-floating mb-3">
+    <input
+      type="text"
+      class="form-control"
+      id="floatingLastnames"
+      placeholder="Ingrese sus apellidos"
+      formControlName="lastnames"
+    />
+    <label for="floatingLastnames">Apellidos</label>
+    <div
+      *ngIf="lastnames.invalid && (lastnames.dirty || lastnames.touched)"
+      class="text-danger"
+    >
+      <div *ngIf="lastnames.errors?.['required']">
+        Los apellidos del usuario son requeridos.
+      </div>
+      <div *ngIf="lastnames.errors?.['pattern']">
+        Los apellidos del usuario deben tener un formato válido.
+      </div>
+    </div>
+  </div>
+  <div class="form-floating mb-3">
+    <input
+      type="text"
+      class="form-control"
+      id="floatingUsername"
+      placeholder="Ingrese su nombre de usuario"
+      formControlName="username"
+    />
+    <label for="floatingUsername">Nombre de usuario</label>
+    <div
+      *ngIf="username.invalid && (username.dirty || username.touched)"
+      class="text-danger"
+    >
+      <div *ngIf="username.errors?.['required']">El username es requerido.</div>
+      <div *ngIf="username.errors?.['pattern']">
+        El nombre de usuario no debe pasar de 20 caracteres, no puedo tener
+        espacios y los caracteres especiales permitios son guion bajo y medio
+      </div>
+    </div>
+  </div>
+  @if (usuarioParaEditar === null) {
+  <div class="form-floating mb-3">
+    <input
+      type="password"
+      class="form-control"
+      id="floatingPassword"
+      placeholder="Ingrese la contraseña del usuario"
+      formControlName="password"
+    />
+    <label for="floatingPassword">Contraseña</label>
+    <div
+      *ngIf="password.invalid && (password.dirty || password.touched)"
+      class="text-danger"
+    >
+      <div *ngIf="password.errors?.['required']">
+        La contraseña es requerida.
+      </div>
+      <div *ngIf="password.errors?.['pattern']">
+        La contraseña debe tener al menos 8 caracteres e incluir al menos una
+        letra minúscula, una letra mayúscula, un número y un carácter especial
+        ($, !, %, *, ?, &)
+      </div>
+    </div>
+  </div>
+  }
+  <div class="form-floating mb-3">
+    <input
+      type="email"
+      class="form-control"
+      id="floatingEmail"
+      placeholder="name@example.com"
+      formControlName="email"
+    />
+    <label for="floatingEmail">Correo electronico</label>
+    <div
+      *ngIf="email.invalid && (email.dirty || email.touched)"
+      class="text-danger"
+    >
+      <div *ngIf="email.errors?.['required']">El correo es requerido.</div>
+      <div *ngIf="email.errors?.['email']">
+        El correo electronico es incorrecto
+      </div>
+    </div>
+  </div>
+  <div class="form-floating mb-3">
+    <input
+      type="tel"
+      class="form-control"
+      id="floatingTel"
+      placeholder="Ingrese su telefono"
+      formControlName="tel"
+    />
+    <label for="floatingTel">Telefono</label>
+    <div *ngIf="tel.invalid && (tel.dirty || tel.touched)" class="text-danger">
+      <div *ngIf="tel.errors?.['required']">El telefono es requerido.</div>
+      <div *ngIf="tel.errors?.['pattern']">
+        Ingresa un número de teléfono válido (8 dígitos)
+      </div>
+    </div>
+  </div>
+  <div class="form-floating mb-3">
+    <textarea
+      type="text"
+      class="form-control"
+      id="floatingAddress"
+      placeholder="Ingrese su dirección"
+      formControlName="address"
+      style="height: 100px;"
+    ></textarea>
+    <label for="floatingAddress">Dirección</label>
+  </div>
+  <div>
+    <button type="button" class="btn btn-primary" (click)="guardarUsuario()">
+      {{ usuarioParaEditar ? "Editar" : "Guardar" }}
+    </button>
+    <button type="button" class="btn btn-primary" (click)="limpiar()">
+      Limpiar
+    </button>
+  </div>
+</form>

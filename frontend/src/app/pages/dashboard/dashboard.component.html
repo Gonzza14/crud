@@ -1,0 +1,40 @@
+<app-nav></app-nav>
+<div
+  *ngIf="!userLoginOn"
+  class="alert alert-info alert-dismissible fade show"
+  role="alert"
+>
+  Para realizar operaciones de inserción, modificación y eliminación debe
+  iniciar sesión
+  <button
+    type="button"
+    class="btn-close"
+    data-bs-dismiss="alert"
+    aria-label="Close"
+  ></button>
+</div>
+
+<div
+  *ngIf="userLoginOn"
+  class="alert alert-success alert-dismissible fade show"
+  role="alert"
+>
+Usuario autenticado
+  <button
+    type="button"
+    class="btn-close"
+    data-bs-dismiss="alert"
+    aria-label="Close"
+  ></button>
+</div>
+
+
+<article *ngIf="userLoginOn" class="grid-1-2">
+  <app-form></app-form>
+  <app-table></app-table>
+</article>
+
+<article *ngIf="!userLoginOn" class="article-style">
+  <app-form></app-form>
+  <app-table></app-table>
+</article>

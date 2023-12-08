@@ -1,0 +1,53 @@
+<div class="card mb-3">
+  <div class="card-header">
+      <i class="fas fa-table"></i>
+      Tabla de usuarios</div>
+  <div class="card-body">
+      <div class="table-responsive">
+      <table class="table table-bordered userTable" id="userTable" width="100%" cellspacing="0">
+          <thead>
+          <tr>
+              <th>Nombres</th>
+              <th>Apellidos</th>
+              <th>Username</th>
+              <th>Correo</th>
+              <th>Telefono</th>
+              <th>Dirección</th>
+              @if (userLoginOn) {
+                <th>Acciones</th>
+              }
+          </tr>
+          </thead>
+          <!--<tfoot>
+          <tr>
+            <th>Nombres</th>
+            <th>Apellidos</th>
+            <th>Nombre de ususario</th>
+            <th>Correo</th>
+            <th>Telefono</th>
+            <th>Direccion</th>
+          </tr>
+          </tfoot>-->
+          <tbody>
+            @for (usuario of usuarios; track usuario.id) {
+              <tr>
+                <td>{{usuario.names}}</td>
+                <td>{{usuario.lastnames}}</td>
+                <td>{{usuario.username}}</td>
+                <td>{{usuario.email}}</td>
+                <td>{{usuario.tel}}</td>
+                <td>{{usuario.address}}</td>
+                @if (userLoginOn) {
+                  <td>
+                    <a href="" (click)="editarUsuario(usuario, $event)"><i class="fa fa-edit"></i></a>
+                    <a href="" (click)="eliminarUsuario(usuario.id!, $event)"><i class="fa fa-trash-alt"></i></a>
+                  </td>
+                }
+
+              </tr>
+            }
+          </tbody>
+      </table>
+
+
+

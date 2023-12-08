@@ -1,0 +1,60 @@
+<section class="text-center text-lg-start">
+  <div class="card tarjeta">
+    <div class="row g-0 d-flex align-items-center">
+      <div class="col-lg-4 d-none d-lg-flex">
+        <img
+          src="https://th.bing.com/th/id/R.ae686e4deaf7f23bdba1cb24e09b76ce?rik=PG82xQkfIAxoFw&riu=http%3a%2f%2fstatic-1.ivoox.com%2faudios%2f8%2f3%2f2%2f6%2f1921621536238_XXL.jpg&ehk=9opx8bgAXHI9e91KY7%2f97%2b6nGOsklHvZrzoymZb1yJk%3d&risl=&pid=ImgRaw&r=0"
+          alt="Trendy Pants and Shoes"
+          class="w-100 rounded-t-5 rounded-tr-lg-0 rounded-bl-lg-5"
+        />
+      </div>
+      <div class="col-lg-8">
+        <div class="card-body py-5 px-md-5">
+          <form [formGroup]="loginForm">
+            <p class="text-danger">{{ loginError }}</p>
+            <div class="mb-3">
+              <label for="inputUsername" class="form-label"
+                >Nombre de usuario</label
+              >
+              <input
+                formControlName="username"
+                type="text"
+                class="form-control"
+                id="inputUsername"
+                aria-describedby="userHelp"
+              />
+              <div
+                *ngIf="username.invalid && (username.dirty || username.touched)"
+                class="text-danger"
+              >
+                <div *ngIf="username.errors?.['required']">
+                  El nombre de usuario es requerido.
+                </div>
+              </div>
+            </div>
+            <div class="mb-3">
+              <label for="InputPassword" class="form-label">Contraseña</label>
+              <input
+                formControlName="password"
+                type="password"
+                class="form-control"
+                id="InputPassword"
+              />
+              <div
+                *ngIf="password.invalid && (password.dirty || password.touched)"
+                class="text-danger"
+              >
+                <div *ngIf="password.errors?.['required']">
+                  La contraseña es requerida.
+                </div>
+              </div>
+            </div>
+            <button type="submit" class="btn btn-primary btn-block mb-4" (click)="login()" class="btn btn-primary">
+              Iniciar Sesión
+            </button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

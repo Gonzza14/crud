@@ -1,0 +1,11 @@
+<div class="modal-header">
+  <h4 class="modal-title">Confirmar Eliminación</h4>
+  <button type="button" class="btn-close" (click)="activeModal.dismiss()" aria-label="Close"></button>
+</div>
+<div class="modal-body">
+  <p>{{ message }}</p>
+</div>
+<div class="modal-footer">
+  <button type="button" class="btn btn-secondary" (click)="activeModal.dismiss()">Cancelar</button>
+  <button type="button" class="btn btn-danger" (click)="confirm()">Eliminar</button>
+</div>
