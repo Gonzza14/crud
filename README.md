@@ -31,7 +31,6 @@
     spring.datasource.url=jdbc:postgresql://localhost:5432/prueba-tecnica-ids
     spring.datasource.username=(Aqui se coloca el nombre de usuario)
     spring.datasource.password=(Aqui se coloca la contraseña)
-
     spring.jpa.show-sql=true
     spring.jpa.properties.hibernate.dialect=org.hibernate.dialect.PostgreSQLDialect
     spring.jpa.hibernate.ddl-auto=update
@@ -66,3 +65,14 @@
 
 <h2>Pantallas de la aplicación</h2>
 
+<p>Pantalla de inicio sin logearse</p>
+
+<img src="https://github.com/Gonzza14/crud/blob/main/img/pagina-inicio-sin-login.png"></img>
+
+<p>Pantalla de login</p>
+
+<img src="https://github.com/Gonzza14/crud/blob/main/img/login.png"></img>
+
+<p>Pantalla de inicio logueado</p>
+
+<img src="https://github.com/Gonzza14/crud/blob/main/img/crud.png"></img>
