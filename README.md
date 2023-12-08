@@ -38,7 +38,7 @@
 
 <h2>Correr proyecto con el IDE Eclipse</h2>
 
-<p>Se debe utilizar <strong>JAVA 21<strong> para que el proyecto funcione<p>
+<p>Se debe utilizar <strong>JAVA 21</strong> para que el proyecto funcione<p>
 
 <ol>
     <li>Abrir el proyecto en el IDE Eclipse</li>
